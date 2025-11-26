@@ -1,0 +1,65 @@
+{
+  "name": "ImageConverterPlugin",
+  "description": "高级图片格式转换与放大工具，支持尺寸调整、格式转换和锐化优化。",
+  "author": "Your Name",
+  "version": "1.0.0",
+  "entry_point": "main.run",
+  "requirements": ["Pillow>=9.0.0"],
+  "ui_schema": [
+    {
+      "type": "file",
+      "name": "image_base64",
+      "label": "1. 选择图片",
+      "accept": ".png, .jpg, .jpeg, .gif, .bmp, .ico",
+      "description": "请选择一张图片进行处理。对于ICO或GIF等多帧图片，将自动选择尺寸最大的帧。"
+    },
+    {
+      "type": "number",
+      "name": "target_width",
+      "label": "2. 目标宽度",
+      "default": 256,
+      "min": 1,
+      "description": "输出图片的宽度（像素）。建议不超过原始尺寸的4倍。"
+    },
+    {
+      "type": "number",
+      "name": "target_height",
+      "label": "   目标高度",
+      "default": 256,
+      "min": 1,
+      "description": "输出图片的高度（像素）。"
+    },
+    {
+      "type": "select",
+      "name": "output_format",
+      "label": "3. 输出格式",
+      "default": "PNG",
+      "options": [
+        {"label": "PNG (支持透明)", "value": "PNG"},
+        {"label": "JPG (不支持透明)", "value": "JPG"}
+      ],
+      "description": "选择输出图片的格式。JPG格式会将透明背景填充为白色。"
+    },
+    {
+      "type": "slider",
+      "name": "sharpen_intensity",
+      "label": "4. 锐化强度",
+      "default": 1.0,
+      "min": 0.0,
+      "max": 3.0,
+      "step": 0.1,
+      "description": "调整图片锐化程度。0为无锐化，值越高锐化效果越强，但可能产生噪点。"
+    }
+  ],
+  "output": {
+    "type": "image",
+    "preview": true,
+    "download": true,
+    "meta": [
+      {"name": "filename", "type": "string", "required": true},
+      {"name": "width", "type": "integer"},
+      {"name": "height", "type": "integer"}
+    ]
+  }
+}
+

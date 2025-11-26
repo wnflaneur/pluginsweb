@@ -1,0 +1,338 @@
+/* 全局样式重置 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background-color: #f5f7fa;
+    color: #333;
+    line-height: 1.6;
+    padding: 20px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* 页面头部 */
+header {
+    text-align: center;
+    margin-bottom: 30px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+header h1 {
+    color: #2c3e50;
+    margin-bottom: 10px;
+}
+
+header p {
+    color: #7f8c8d;
+}
+
+/* 上传区域 */
+.upload-section {
+    background-color: #fff;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    margin-bottom: 30px;
+}
+
+.upload-section h2 {
+    color: #2c3e50;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #ecf0f1;
+}
+
+#upload-form {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+#plugin_file {
+    flex: 1;
+    padding: 8px;
+    border: 1px solid #bdc3c7;
+    border-radius: 4px;
+}
+
+/* 按钮样式 */
+.btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
+
+.btn-primary {
+    background-color: #3498db;
+    color: #fff;
+}
+
+.btn-primary:hover {
+    background-color: #2980b9;
+}
+
+.btn-toggle {
+    background-color: #2ecc71;
+    color: #fff;
+}
+
+.btn-toggle[data-enabled="False"] {
+    background-color: #e74c3c;
+}
+
+.btn-toggle:hover {
+    opacity: 0.9;
+}
+
+.btn-delete {
+    background-color: #e74c3c;
+    color: #fff;
+}
+
+.btn-delete:hover {
+    background-color: #c0392b;
+}
+
+.btn-run {
+    background-color: #f39c12;
+    color: #fff;
+}
+
+.btn-run:hover {
+    background-color: #e67e22;
+}
+
+/* 提示信息 */
+.flash-messages {
+    margin-top: 15px;
+}
+
+.alert {
+    padding: 12px;
+    border-radius: 4px;
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+    margin-bottom: 10px;
+}
+
+/* 插件列表 */
+.plugins-list {
+    background-color: #fff;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.plugins-list h2 {
+    color: #2c3e50;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #ecf0f1;
+}
+
+.plugins-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.plugin-card {
+    padding: 20px;
+    border: 1px solid #ecf0f1;
+    border-radius: 8px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.plugin-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.plugin-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.plugin-header h3 {
+    color: #2c3e50;
+    font-size: 18px;
+}
+
+.plugin-version {
+    background-color: #3498db;
+    color: #fff;
+    padding: 3px 8px;
+    border-radius: 12px;
+    font-size: 12px;
+}
+
+.plugin-desc {
+    color: #7f8c8d;
+    margin-bottom: 15px;
+    font-size: 14px;
+}
+
+.plugin-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-bottom: 15px;
+    font-size: 12px;
+    color: #95a5a6;
+}
+
+.plugin-actions {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+}
+
+.no-plugins {
+    text-align: center;
+    padding: 20px;
+    color: #7f8c8d;
+    font-style: italic;
+}
+
+/* 模态框 */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.5);
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 10% auto;
+    padding: 30px;
+    border-radius: 8px;
+    width: 80%;
+    max-width: 700px;
+    box-shadow: 0 5px 30px rgba(0,0,0,0.2);
+    position: relative;
+}
+
+.close-btn {
+    position: absolute;
+    top: 20px;
+    right: 25px;
+    font-size: 28px;
+    font-weight: bold;
+    color: #7f8c8d;
+    cursor: pointer;
+}
+
+.close-btn:hover {
+    color: #2c3e50;
+}
+
+.modal h3 {
+    color: #2c3e50;
+    margin-bottom: 20px;
+    font-size: 20px;
+}
+
+/* 插件输入表单 */
+.plugin-input-form {
+    margin-bottom: 25px;
+    padding: 20px;
+    border: 1px solid #ecf0f1;
+    border-radius: 6px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: #2c3e50;
+    font-weight: 500;
+}
+
+.form-control {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #bdc3c7;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.form-text {
+    margin-top: 5px;
+    font-size: 12px;
+    color: #95a5a6;
+}
+
+/* 插件输出区域 */
+.plugin-output {
+    margin-bottom: 25px;
+    padding: 20px;
+    border: 1px solid #ecf0f1;
+    border-radius: 6px;
+    min-height: 80px;
+}
+
+.plugin-output pre {
+    background-color: #f8f9fa;
+    padding: 15px;
+    border-radius: 4px;
+    overflow-x: auto;
+    font-size: 13px;
+}
+
+.plugin-output .error {
+    color: #e74c3c;
+    font-weight: 500;
+}
+
+.plugin-output img {
+    max-width: 100%;
+    max-height: 250px;
+    margin: 10px 0;
+    border-radius: 4px;
+    border: 1px solid #ecf0f1;
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+    .plugins-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .modal-content {
+        width: 90%;
+        margin: 15% auto;
+    }
+
+    #upload-form {
+        flex-direction: column;
+        align-items: stretch;
+    }
+}
+
