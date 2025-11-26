@@ -1,0 +1,91 @@
+{
+  "name": "RegexTesterPlugin",
+  "description": "正则表达式测试工具，支持多种匹配模式，显示详细的匹配结果和分组信息",
+  "author": "Your Name",
+  "version": "1.1.0",
+  "entry_point": "main.run",
+  "requirements": [],
+  "ui_schema": [
+    {
+      "type": "text",
+      "name": "regex",
+      "label": "1. 正则表达式",
+      "default": "",
+      "placeholder": "请输入正则表达式（如：^\\d+$）",
+      "description": "支持Python正则语法，可使用\\d匹配数字、\\w匹配单词字符等"
+    },
+    {
+      "type": "textarea",
+      "name": "test_string",
+      "label": "2. 测试字符串",
+      "default": "",
+      "placeholder": "请输入测试字符串",
+      "rows": 4,
+      "description": "输入需要匹配的文本内容，支持多行文本"
+    },
+    {
+      "type": "checkbox-group",
+      "name": "flags",
+      "label": "3. 匹配模式",
+      "options": [
+        {
+          "label": "IGNORECASE (忽略大小写)",
+          "value": "IGNORECASE",
+          "description": "忽略大小写匹配（如a和A视为相同）"
+        },
+        {
+          "label": "MULTILINE (多行模式)",
+          "value": "MULTILINE",
+          "description": "^匹配行首，$匹配行尾"
+        },
+        {
+          "label": "DOTALL (点匹配所有)",
+          "value": "DOTALL",
+          "description": "'.'匹配包括换行符在内的所有字符"
+        },
+        {
+          "label": "UNICODE (Unicode匹配)",
+          "value": "UNICODE",
+          "description": "启用Unicode匹配模式"
+        },
+        {
+          "label": "VERBOSE (详细模式)",
+          "value": "VERBOSE",
+          "description": "忽略正则中的空格和注释"
+        }
+      ],
+      "description": "选择正则表达式的匹配模式（可多选）"
+    }
+  ],
+  "output": {
+    "type": "regex_result",
+    "preview": true,
+    "meta": [
+      {
+        "name": "total_matches",
+        "type": "integer",
+        "required": true
+      },
+      {
+        "name": "matches",
+        "type": "array",
+        "required": true
+      },
+      {
+        "name": "regex",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "test_string",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "flags",
+        "type": "array",
+        "required": true
+      }
+    ]
+  }
+}
